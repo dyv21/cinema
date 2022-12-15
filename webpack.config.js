@@ -1,9 +1,26 @@
-const path = requ ire('path');
+const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './path/to/my/entry/file.js',
+  entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'my-first-webpack.bundle.js',
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'build'),
+    clean: true
   },
+  devtool: 'source-map',
+  plugins: [
+    new CopyPlugin({
+      patterns: [{from: 'public'}]
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: ['babel-loader']
+      }
+    ]
+  }
 };
