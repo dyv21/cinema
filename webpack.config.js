@@ -9,6 +9,10 @@ module.exports = {
     clean: true
   },
   devtool: 'source-map',
+  devServer: {
+    hot: false,
+    port: 3000,
+  },
   plugins: [
     new CopyPlugin({
       patterns: [{from: 'public'}]
