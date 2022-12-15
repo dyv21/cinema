@@ -15,8 +15,8 @@ render(new SortView(), siteElements.main);
 render(new FilmsContainerView(), siteElements.main);
 
 
-const filmsList = siteElements.main.querySelector('.films-list')
-const filmsListContainer = filmsList.querySelector('.films-list__container')
+const filmsList = siteElements.main.querySelector('.films-list');
+const filmsListContainer = filmsList.querySelector('.films-list__container');
 
 for (let i = 1; i <= FILMS_AMOUNT; i++) {
   render(new FilmThumbView(), filmsListContainer);
