@@ -1,31 +1,13 @@
-import { FILMS_AMOUNT, siteElements } from './const.js';
-import UserProfileView from './view/user-profile-view.js';
-import MainNavView from './view/main-nav-view.js';
-import SortView from './view/sort-view.js';
-import FilmsContainerView from './view/films-container-view';
-import FilmThumbView from './view/film-thumb-view.js';
-import ShowMoreButtonView from './view/show-more-button.js';
-import FilmDetailsView from './view/film-details-view.js';
-
 import { render } from './render.js';
 
+import { siteElements } from './const.js';
+import UserProfileView from './view/user-profile-view.js';
+import FilmsPresenter from './presenter/films-presenter.js';
+
+const filmPresenter = new FilmsPresenter();
 
 render(new UserProfileView(), siteElements.header);
-render(new MainNavView(), siteElements.main);
-render(new SortView(), siteElements.main);
-render(new FilmsContainerView(), siteElements.main);
 
-
-const filmsList = siteElements.main.querySelector('.films-list');
-const filmsListContainer = filmsList.querySelector('.films-list__container');
-
-for (let i = 1; i <= FILMS_AMOUNT; i++) {
-  render(new FilmThumbView(), filmsListContainer);
-}
-
-render(new ShowMoreButtonView(), filmsList);
-
-
-// render(new FilmDetailsView(), filmsList);
+filmPresenter.init(siteElements.main);
 
 
