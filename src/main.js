@@ -5,6 +5,7 @@ import SortView from './view/sort-view.js';
 import FilmsContainerView from './view/films-container-view';
 import FilmThumbView from './view/film-thumb-view.js';
 import ShowMoreButtonView from './view/show-more-button.js';
+import FilmDetailsView from './view/film-details-view.js';
 
 import { render } from './render.js';
 
@@ -23,3 +24,8 @@ for (let i = 1; i <= FILMS_AMOUNT; i++) {
 }
 
 render(new ShowMoreButtonView(), filmsList);
+
+
+// render(new FilmDetailsView(), filmsList);
+
+
